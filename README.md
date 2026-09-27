@@ -8,7 +8,7 @@ YOUR_LIVE_WEBSITE_LINK
 
 ## GitHub Repository
 
-YOUR_GITHUB_REPOSITORY_LINK
+(https://github.com/tahera-islam/fit-log)
 
 ## Project Description
 
@@ -96,21 +96,4 @@ The layout adapts to different screen sizes using responsive Tailwind CSS classe
 
 
 ## Footer
-
 © 2026 FitLog — Workout Library. Train hard, log honest.
-
-````
-
-**এখন শুধু এই দুইটা বদলাবে:**
-
-```text
-YOUR_LIVE_WEBSITE_LINK
-````
-
-এবং
-
-```text
-YOUR_GITHUB_REPOSITORY_LINK
-```
-
-বাকি অংশ **copy → existing `README.md` → paste → save** করতে পারো।
