@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# FitLog — Workout Library
 
-## Getting Started
+FitLog is a responsive workout library web application built with Next.js. It allows users to explore workouts, view workout details, create a personal workout plan, and save workouts for later.
 
-First, run the development server:
+## Live Website
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+YOUR_LIVE_WEBSITE_LINK
+
+## GitHub Repository
+
+YOUR_GITHUB_REPOSITORY_LINK
+
+## Project Description
+
+FitLog is a modern workout library designed to help users discover exercises and organize their daily workout routine.
+
+Users can browse different workouts, view detailed workout information, add exercises to their daily plan, and save workouts for later use.
+
+The website is fully responsive and works across mobile, tablet, and desktop devices.
+
+## Features
+
+* Browse a complete workout library
+* Fetch workout data from an external REST API
+* View detailed information for individual workouts
+* Add workouts to today's plan
+* Save workouts for later
+* Remove workouts from the plan or saved list
+* Display workout duration and calories burned
+* Display muscle groups, equipment, difficulty, and rating
+* Responsive design for mobile, tablet, and desktop
+* Dynamic workout detail pages
+* Local Storage for workout plans and saved workouts
+* Reusable Navbar and Footer components
+
+## Technologies Used
+
+* Next.js
+* React
+* JavaScript
+* Tailwind CSS
+* Next.js App Router
+* REST API
+* Local Storage
+* Next/Image
+* Next/Link
+
+## API
+
+Workout data is fetched from the FitLog API.
+
+All workouts:
+
+https://api.abcz.workers.dev/api/fitlog
+
+Single workout:
+
+https://api.abcz.workers.dev/api/fitlog/:id
+
+## Main Pages
+
+### Home
+
+The home page introduces FitLog and provides access to the workout library.
+
+### Workout
+
+The Workout page displays available workouts in responsive cards with important workout information.
+
+### Workout Details
+
+The dynamic workout details page displays detailed information about a selected workout.
+
+Example:
+
+`/workout/5`
+
+### My Plan
+
+The My Plan page displays workouts added to today's workout plan.
+
+### Saved
+
+The Saved section displays workouts saved by the user for later.
+
+## Responsive Design
+
+FitLog is designed to work properly on:
+
+* Mobile devices
+* Tablets
+* Desktop screens
+
+The layout adapts to different screen sizes using responsive Tailwind CSS classes.
+
+
+
+## Footer
+
+© 2026 FitLog — Workout Library. Train hard, log honest.
+
+````
+
+**এখন শুধু এই দুইটা বদলাবে:**
+
+```text
+YOUR_LIVE_WEBSITE_LINK
+````
+
+এবং
+
+```text
+YOUR_GITHUB_REPOSITORY_LINK
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+বাকি অংশ **copy → existing `README.md` → paste → save** করতে পারো।
