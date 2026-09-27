@@ -6,11 +6,71 @@ const WorkoutActions = ({ workout }) => {
     const [message, setMessage] = useState("");
 
     const handleAddToPlan = () => {
-        localStorage.setItem("todayPlan", JSON.stringify(workout));
+        const existingWorkouts = localStorage.getItem("todayPlan");
+
+        let todayPlan = [];
+
+        if (existingWorkouts) {
+            todayPlan = JSON.parse(existingWorkouts);
+        }
+        const alreadyAdded = todayPlan.some(
+            (item) => item.id === workout.id
+        );
+
+        if (alreadyAdded) {
+            setMessage("This workout is already in today's plan.");
+            return;
+        }
+
+        if (todayPlan.length >= 5) {
+            setMessage("You can add maximum 5 workouts.");
+            return;
+        }
+
+        todayPlan.push(workout);
+
+        localStorage.setItem(
+            "todayPlan",
+            JSON.stringify(todayPlan)
+        );
+
         setMessage("Added to Today's Plan!");
     };
     const handleSaveForLater = () => {
-        localStorage.setItem("savedWorkout", JSON.stringify(workout));
+        const existingSaved = localStorage.getItem("savedWorkout");
+
+        let savedList = [];
+
+        if (existingSaved) {
+            const oldData = JSON.parse(existingSaved);
+
+            if (Array.isArray(oldData)) {
+                savedList = oldData;
+            } else {
+                savedList = [oldData];
+            }
+        }
+
+        const alreadySaved = savedList.some(
+            (item) => item.id === workout.id
+        );
+
+        if (alreadySaved) {
+            setMessage("This workout is already saved.");
+            return;
+        }
+
+        if (savedList.length >= 5) {
+            setMessage("You can save maximum 5 workouts.");
+            return;
+        }
+
+        savedList.push(workout);
+
+        localStorage.setItem(
+            "savedWorkout",
+            JSON.stringify(savedList)
+        );
 
         setMessage("Saved for Later!");
     };

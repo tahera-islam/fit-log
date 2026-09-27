@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -14,8 +14,22 @@ const Navbar = () => {
         { name: "My Plan", path: "/my-plan" },
     ];
 
-    const planCount = 2;
-    const savedCount = 5;
+    const [planCount, setPlanCount] = useState(0);
+    const [savedCount, setSavedCount] = useState(0);
+
+    useEffect(() => {
+        const todayPlan = localStorage.getItem("todayPlan");
+        const savedWorkout = localStorage.getItem("savedWorkout");
+
+        if (todayPlan) {
+            const plan = JSON.parse(todayPlan);
+            setPlanCount(plan.length);
+        }
+
+        if (savedWorkout) {
+            setSavedCount(1);
+        }
+    }, []);
 
     return (
         <nav className="bg-black border-b border-gray-800">
