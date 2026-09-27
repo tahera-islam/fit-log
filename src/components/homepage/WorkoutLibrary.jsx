@@ -1,6 +1,13 @@
 import WorkoutCard from "./WorkoutCard";
 
-const WorkoutLibrary = () => {
+const getCards = async () => {
+    const res = await fetch('https://api.abcz.workers.dev/api/fitlog');
+    const cards = await res.json();
+    return cards;
+}
+
+const WorkoutLibrary = async() => {
+    const cards = await getCards();
     return (
         <section
             id="library"
@@ -21,8 +28,12 @@ const WorkoutLibrary = () => {
             {/* Workout Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 
-                {/* পরে এখানে API data থেকে cards আসবে */}
-
+                {cards.map((card) => (
+                    <WorkoutCard
+                        key={card.id}
+                        workout={card}
+                    />
+                ))}
             </div>
 
         </section>

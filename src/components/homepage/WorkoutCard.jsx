@@ -1,7 +1,5 @@
 
-const getCards = async() => {
-    const res = await fetch('')
-}
+
 
 const WorkoutCard = ({ workout }) => {
     return (
@@ -21,11 +19,13 @@ const WorkoutCard = ({ workout }) => {
 
                 {/* Category */}
                 <div className="flex gap-2 mb-3">
-                    <span className="text-xs border border-gray-600 rounded-full px-3 py-1">
+                    <span className="text-xs bg-[#C2F800] text-[#000000]
+                    rounded-full px-3 py-1">
                         CHEST
                     </span>
 
-                    <span className="text-xs border border-gray-600 rounded-full px-3 py-1">
+                    <span className="text-xs bg-[#C2F800] text-[#000000]
+                    rounded-full px-3 py-1">
                         ARMS
                     </span>
                 </div>
