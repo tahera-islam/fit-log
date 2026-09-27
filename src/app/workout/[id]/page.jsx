@@ -1,5 +1,10 @@
+
 import React from 'react';
 import Image from 'next/image';
+import WorkoutActions from '@/components/shared/WorkoutActions';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBookmark } from "@fortawesome/free-regular-svg-icons";
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 const getWorkout = async(id) => {
     const res = await fetch(`https://api.abcz.workers.dev/api/fitlog/${id}`);
@@ -12,7 +17,7 @@ const WorkoutDetailsPage = async ({ params }) => {
     const workout = await getWorkout(id);
 
     return (
-        <section className="bg-[#000000] max-w-7xl mx-auto px-6 py-16 text-white">
+        <section className="bg-[#000000] min-h-screen max-w-7xl mx-auto px-6 py-16 text-white">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
                 {/* LEFT SIDE */}
@@ -51,57 +56,58 @@ const WorkoutDetailsPage = async ({ params }) => {
                         ))}
                     </div>
 
-                    {/* Specs */}
-                    <div className="bg-[#151922] rounded-2xl p-5 mt-8 space-y-4">
-                        <div className="flex justify-between">
-                            <span>Equipment</span>
-                            <span>{workout.equipment}</span>
+                    
+                    <div className="bg-[#151922] border border-[#9CA3AF] rounded-2xl p-5 mt-8  divide-y divide-gray-800 ">
+                        <div className="flex justify-between py-4">
+                            <span className='text-[#9CA3AF] uppercase text-xs'>Equipment</span>
+                            <span className='text-[#E5E7EB] font-medium'>{workout.equipment}</span>
+                        </div>
+                        
+
+                        <div className="flex justify-between py-4">
+                            <span className='text-[#9CA3AF] uppercase text-xs'>Difficulty</span>
+                            <span className='text-[#E5E7EB] font-medium'>{workout.difficulty}</span>
+                        </div>
+                        
+
+                        <div className="flex justify-between py-4">
+                            <span className='text-[#9CA3AF] uppercase text-xs'>Sets</span>
+                            <span className='text-[#E5E7EB] font-medium'>{workout.sets}</span>
                         </div>
 
-                        <div className="flex justify-between">
-                            <span>Difficulty</span>
-                            <span>{workout.difficulty}</span>
+                        <div className="flex justify-between py-4">
+                            <span className='text-[#9CA3AF] uppercase text-xs'>Reps</span>
+                            <span className='text-[#E5E7EB] font-medium'>{workout.reps}</span>
                         </div>
 
-                        <div className="flex justify-between">
-                            <span>Sets</span>
-                            <span>{workout.sets}</span>
+                        <div className="flex justify-between py-4">
+                            <span className='text-[#9CA3AF] uppercase text-xs'>Duration</span>
+                            <span className='text-[#E5E7EB] font-medium'>{workout.duration} min</span>
                         </div>
 
-                        <div className="flex justify-between">
-                            <span>Reps</span>
-                            <span>{workout.reps}</span>
+                        <div className="flex justify-between py-4">
+                            <span className='text-[#9CA3AF] uppercase text-xs'>Calories</span>
+                            <span className='text-[#E5E7EB] font-medium'>{workout.caloriesBurned} kcal</span>
                         </div>
 
-                        <div className="flex justify-between">
-                            <span>Duration</span>
-                            <span>{workout.duration} min</span>
-                        </div>
-
-                        <div className="flex justify-between">
-                            <span>Calories</span>
-                            <span>{workout.caloriesBurned} kcal</span>
-                        </div>
-
-                        <div className="flex justify-between">
-                            <span>Rating</span>
-                            <span>⭐ {workout.rating}</span>
+                        <div className="flex justify-between py-4">
+                            <span className='text-[#9CA3AF] uppercase text-xs'>Rating</span>
+                            <span className='text-[#E5E7EB] font-medium'>⭐ {workout.rating}</span>
                         </div>
                     </div>
 
                     <div>
-                        <h3 className='text-[#FFFFFF] font-extrabold my-4'>INTRUCTIONS</h3>
-                        <ol className='list-decimal space-y-3 pl-3'>
-                            <li>Lie on the bench with eyes under the bar and feet planted.</li>
-                            <li>Unrack with locked elbows and lower the bar to mid-chest.</li>
-                            <li>Press up in a slight arc until elbows lock without bouncing.</li>
-                            <li>Keep shoulder blades pinched and a natural arch in the back.</li>
+                        <h3 className='text-[#FFFFFF] font-extrabold my-4'>INSTRUCTIONS</h3>
+                        <ol className="list-decimal space-y-3 pl-5 mt-4 text-gray-300">
+                            {workout.instructions.map((step, index) => (
+                                <li key={index}>{step}</li>
+                            ))}
                         </ol>
+                    </div>
+                    <WorkoutActions workout={workout} />
                     </div>
 
                 </div>
-
-            </div>
         </section>
     );
 };
