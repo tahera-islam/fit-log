@@ -6,8 +6,13 @@ const WorkoutActions = ({ workout }) => {
     const [message, setMessage] = useState("");
 
     const handleAddToPlan = () => {
-        console.log(workout);
+        localStorage.setItem("todayPlan", JSON.stringify(workout));
         setMessage("Added to Today's Plan!");
+    };
+    const handleSaveForLater = () => {
+        localStorage.setItem("savedWorkout", JSON.stringify(workout));
+
+        setMessage("Saved for Later!");
     };
 
     return (
@@ -23,7 +28,8 @@ const WorkoutActions = ({ workout }) => {
             </button>
 
             {/* Save for Later */}
-            <button
+            <button 
+                onClick={handleSaveForLater}
                 className="flex items-center justify-center gap-2 border border-gray-600 hover:border-gray-400 text-white py-3 px-6 rounded-full transition duration-200"
             >
                 <span>🔖</span>
